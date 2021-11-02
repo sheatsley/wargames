@@ -1,11 +1,16 @@
-## Bandit - Level 2
+## Bandit - Level 3
 ---
->The password for the next level is stored in a file called - located in the
->home directory
+>The password for the next level is stored in a hidden file in the inhere
+>directory.
 
-Since filenames with spaces, entered as-is, will be interpreted as separate
-files, the trick is to quote the filename:
+Hidden files are preceeded with `.` and thus, require the flag `-a` with `ls`
+to view them.
 ```
-bandit2@bandit:~$ cat "spaces in this filename"
-UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+bandit3@bandit:~/inhere$ ls -la
+total 12
+drwxr-xr-x 2 root    root    4096 May  7  2020 .
+drwxr-xr-x 3 root    root    4096 May  7  2020 ..
+-rw-r----- 1 bandit4 bandit3   33 May  7  2020 .hidden
+bandit3@bandit:~/inhere$ cat .hidden
+pIwrPrtPN36QITSp3EQaw936yaFoFgAB
 ```
